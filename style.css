@@ -1,0 +1,16 @@
+* {
+    font-family: 'Maven Pro', sans-serif;
+}
+
+body {
+    background-color: rgba(200, 212, 221, 0.8);
+}
+
+header {
+    justify-content: center;
+    text-align: center;
+}
+
+#board {
+    display: flex;
+}
