@@ -1,0 +1,33 @@
+# Initiation
+    Player initiates new game with 'start game' button
+    Game board initiates
+    random code of colors/images generated secretly
+
+# Player Turn
+    Prompt player to guess the code
+    ## need to choose selector method - all will have a 'Submit' button so they can make changes before answering
+        Pop out selector?
+        Drop down menu?
+        Click through options?
+    Display user guess 
+
+# Check guesses
+    Check if each item is in the code array and/or in the correct index
+        If item is in the array AND in the correct index, circle in green
+        Else if item is included in the array (not the correct index), circle in yellow
+        Else (nowhere in array), circle in red
+    Check if all items are correct
+        If all items are green (correct items in proper index), display winner message
+        Else (any item is not green), add a new guess row (empty array) and prompt for user input again
+
+# Maximum guesses
+    Include a maximum guess (maximum arrays on board)
+    When maximum guess is reached, display lose message and show a 'Play Again' button
+    Show number of guesses remaining
+    Pop up or display 'warning' message when there is only one guess left
+
+# ICEBOX
+Add 1 Player or Two Player modes
+    in 2 player, one player chooses the pattern, hits submit, and then the board in populated
+
+Confetti animation on win
