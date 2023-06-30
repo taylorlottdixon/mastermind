@@ -1,3 +1,8 @@
+# Theme - Cupcakes
+    There are 8 different cupcakes and five plates, which act as the available guessing spots
+    On opening the game, the cupcakes will randomize onto the plates at regular intervals (just aesthetic)
+    Rules will be shown here, then be accessible through a pop up window in the corner
+
 # Initiation
     Player initiates new game with 'start game' button
     Game board initiates
@@ -19,6 +24,8 @@
     Check if all items are correct
         If all items are green (correct items in proper index), display winner message
         Else (any item is not green), add a new guess row (empty array) and prompt for user input again
+            Make plates appear in an animation from left to right
+            Then the prompt appears to guess the cupcakes
 
 # Maximum guesses
     Include a maximum guess (maximum arrays on board)
