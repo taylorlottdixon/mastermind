@@ -34,7 +34,7 @@ function createLandingPage() {
 
 
 // To randomize cupcakes on the landing page, I'll need:
-// to setTimeout to change each cupcake at intervals (random intervals?  >>>>  Math.floor(Math.random() * 11) seconds
-// iterate through the different divs
-// iterate through the cupcakes array of objects to insert images
-// Math.floor(Math.random() * 10) <<<< Random number between 0-9 <<<< will need to ignore 8s and 9s
+//     to setTimeout to change each cupcake at intervals (random intervals?  >>>>  Math.floor(Math.random() * 11) seconds
+//     iterate through the different divs
+//     iterate through the cupcakes array of objects to insert images
+//        Math.floor(Math.random() * 10) <<<< Random number between 0-9 <<<< will need to ignore 8s and 9s
