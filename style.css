@@ -11,6 +11,36 @@ header {
     text-align: center;
 }
 
+h1 {
+    margin: 8vh 0 5vh 0;
+    font-size: 5vh;
+}
+
+.codePlate {
+    height: 15vh;
+    width: 15vh;
+    margin: 1vh;
+    border: 1px solid white;
+    background-image: url(cupcakes\plate.png);
+    background-color: transparent;
+}
+
 #board {
     display: flex;
+    flex-direction: row; 
+    justify-content: center;
 }
+
+.textarea{
+    width:50%;
+    background-color:#eee;
+    overflow:hidden;
+    height:400px;
+    max-height:400px;
+    border:1px solid #ccc;
+    overflow-y: auto;
+    margin-left: 25%;
+    padding: 2vh;
+    font-size: 4vh;
+    margin-top: 4vh;
+  }
