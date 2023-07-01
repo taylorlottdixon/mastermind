@@ -3,7 +3,9 @@
 }
 
 body {
-    background-color: rgba(200, 212, 221, 0.8);
+    background-color: rgba(200, 212, 221, 1);
+    height: 100%;
+    width: 100%;
 }
 
 header {
@@ -14,15 +16,51 @@ header {
 h1 {
     margin: 8vh 0 5vh 0;
     font-size: 5vh;
+    color: white;
+    text-shadow: -1px 1px 0 rgba(82, 88, 96, 1),
+				  1px 1px 0 rgba(82, 88, 96, 1),
+				  1px -1px 0 rgba(82, 88, 96, 1),
+                 -1px -1px 0 rgba(82, 88, 96, 1);
 }
 
-.codePlate {
+#codePlate1 {
     height: 15vh;
     width: 15vh;
     margin: 1vh;
-    border: 1px solid white;
-    background-image: url(cupcakes\plate.png);
-    background-color: transparent;
+    background: transparent url(cupcakes/plate.png) no-repeat;
+    background-size: contain;
+}
+
+#codePlate2 {
+    height: 15vh;
+    width: 15vh;
+    margin: 1vh;
+    background: transparent url(cupcakes/plate.png) no-repeat;
+    background-size: contain;
+}
+
+#codePlate3 {
+    height: 15vh;
+    width: 15vh;
+    margin: 1vh;
+    background: transparent url(cupcakes/plate.png) no-repeat;
+    background-size: contain;
+}
+
+#codePlate4 {
+    height: 15vh;
+    width: 15vh;
+    margin: 1vh;
+    background: transparent url(cupcakes/plate.png) no-repeat;
+    background-size: contain;
+}
+
+#codePlate5 {
+    height: 15vh;
+    width: 15vh;
+    margin: 1vh;
+    background: transparent url(cupcakes/plate.png) no-repeat;
+    background-size: contain;
 }
 
 #board {
@@ -41,6 +79,33 @@ h1 {
     overflow-y: auto;
     margin-left: 25%;
     padding: 2vh;
-    font-size: 4vh;
+    font-size: 3.15vh;
     margin-top: 4vh;
+    box-shadow: -2px 2px 1px rgba(82, 88, 96, 1),
+                 2px 2px 1px rgba(82, 88, 96, 1),
+                 2px -2px 1px rgba(82, 88, 96, 1),
+                -2px -2px 1px rgba(82, 88, 96, 1);
+  }
+
+.centered {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    justify-content: center;
+    margin: 3vh;
+    padding: 1vh;
+    font-size: 2.5vh;
+    border: 1px solid rgba(135, 48, 189, 0.8);
+    color: rgba(135, 48, 189, 0.8);
+    font-weight: bold;
+  }
+
+  button:hover {
+    font-size: 3vh;
+    color: rgba(89, 11, 138, 0.8);
+    border: 1.5px solid rgba(89, 11, 138, 0.8);
+    transition: .3s;
   }
