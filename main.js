@@ -11,7 +11,7 @@ const cupcakes = [
 ]
 
 
-const landingPlates = [codePlate1, codePlate2, codePlate3, codePlate4, codePlate5]
+const landingPlates = [secretPlate1, secretPlate2, secretPlate3, secretPlate4, secretPlate5]
 
 /*----- state variables -----*/
 let board
@@ -29,22 +29,23 @@ const rulesBtn = document.getElementById('rules')
 
 
 /*----- functions -----*/
-initLanding()
+init()
 
-function initLanding() {
+function init() {
     createLandingPage
 }
 
 function createLandingPage() {
     
-    landingPlates.forEach( (plate) => {     
-        let randomCupcake = cupcakes[Math.floor(Math.random() * cupcakes.length)].image
-        let imgCupcake = document.createElement("img")
-        imgCupcake.setAttribute('src', `${randomCupcake}`)
-        imgCupcake.setAttribute('class', 'cupcake')
-        document.getElementById(`${plate}`).appendChild(`${imgCupcake}`)
-        console.log(plate)
-    });
+    /////// ADD LATER -- want cupcakes to randomly change on landing page plates
+    // landingPlates.forEach( (plate) => {     
+    //     let randomCupcake = cupcakes[Math.floor(Math.random() * cupcakes.length)].image
+    //     let imgCupcake = document.createElement("img")
+    //     imgCupcake.setAttribute('src', `${randomCupcake}`)
+    //     imgCupcake.setAttribute('class', 'cupcake')
+    //     document.getElementById(`${plate}`).appendChild(`${imgCupcake}`)
+    //     console.log(plate)
+    // });
 }
 
 // To randomize cupcakes on the landing page, I'll need:

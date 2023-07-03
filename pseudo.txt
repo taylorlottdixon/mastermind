@@ -38,3 +38,5 @@ Add 1 Player or Two Player modes
     in 2 player, one player chooses the pattern, hits submit, and then the board in populated
 
 Confetti animation on win
+
+Stylize radial menu for cupcake choice on plate click

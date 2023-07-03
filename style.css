@@ -24,39 +24,7 @@ div {
     align-items: center;
 }
 
-#codePlate1 {
-    height: 15vh;
-    width: 15vh;
-    margin: 1vh;
-    background: transparent url(cupcakes/plate.png) no-repeat;
-    background-size: contain;
-}
-
-#codePlate2 {
-    height: 15vh;
-    width: 15vh;
-    margin: 1vh;
-    background: transparent url(cupcakes/plate.png) no-repeat;
-    background-size: contain;
-}
-
-#codePlate3 {
-    height: 15vh;
-    width: 15vh;
-    margin: 1vh;
-    background: transparent url(cupcakes/plate.png) no-repeat;
-    background-size: contain;
-}
-
-#codePlate4 {
-    height: 15vh;
-    width: 15vh;
-    margin: 1vh;
-    background: transparent url(cupcakes/plate.png) no-repeat;
-    background-size: contain;
-}
-
-#codePlate5 {
+div.plate > div {
     height: 15vh;
     width: 15vh;
     margin: 1vh;
@@ -65,6 +33,12 @@ div {
 }
 
 #board {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.plate {
     display: flex;
     flex-direction: row; 
     justify-content: center;
@@ -113,4 +87,44 @@ button {
   .cupcake {
     height: 15vh;
     width: 15vh;
+  }
+
+  #guess1 {
+    display: none;
+  }
+
+  #guess2 {
+    display: none;
+  }
+
+  #guess3 {
+    display: none;
+  }
+
+  #guess4 {
+    display: none;
+  }
+
+  #guess5 {
+    display: none;
+  }
+
+  #guess6 {
+    display: none;
+  }
+
+  #guess7 {
+    display: none;
+  }
+
+  #guess8 {
+    display: none;
+  }
+
+  #guess9 {
+    display: none;
+  }
+
+  #guess10 {
+    display: none;
   }
