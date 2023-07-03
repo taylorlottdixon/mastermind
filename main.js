@@ -1,5 +1,6 @@
 /*----- constants -----*/
 const cupcakes = [
+    {ccId: "empty", image: null},
     {ccId: "cupcake1", image: "cupcakes/1.png"},
     {ccId: "cupcake2", image: "cupcakes/2.png"},
     {ccId: "cupcake3", image: "cupcakes/3.png"},
@@ -9,9 +10,6 @@ const cupcakes = [
     {ccId: "cupcake7", image: "cupcakes/7.png"},
     {ccId: "cupcake8", image: "cupcakes/8.png"},
 ]
-
-
-const landingPlates = [secretPlate1, secretPlate2, secretPlate3, secretPlate4, secretPlate5]
 
 /*----- state variables -----*/
 let board
@@ -26,17 +24,38 @@ const resetBtn = document.getElementById('reset')
 const rulesBtn = document.getElementById('rules')
 
 /*----- event listeners -----*/
-
+// letsGoBtn.addEventListener('click', createGameBoard)
+// playAgainBtn.addEventListener('click', createGameBoard)
+// resetBtn.addEventListener('click', createGameBoard)
+// rulesBtn.addEventListener('click', rulePopOut)
 
 /*----- functions -----*/
 init()
 
 function init() {
-    createLandingPage
+    createGameBoard()
 }
 
-function createLandingPage() {
-    
+
+function createGameBoard() {
+    board = [
+        [0, 0, 0, 0, 0], // secret code, guess 0
+        [0, 0, 0, 0, 0], // guess 1
+        [0, 0, 0, 0, 0], // guess 2
+        [0, 0, 0, 0, 0], // guess 3
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+    ]
+    turn = 1
+    winner = null
+
+    unhideGuess()
+
     /////// ADD LATER -- want cupcakes to randomly change on landing page plates
     // landingPlates.forEach( (plate) => {     
     //     let randomCupcake = cupcakes[Math.floor(Math.random() * cupcakes.length)].image
@@ -54,12 +73,11 @@ function createLandingPage() {
 //     iterate through the cupcakes array of objects to insert images
 //        Math.floor(Math.random() * 10) <<<< Random number between 0-9 <<<< will need to ignore 8s and 9s
 
-letsGoBtn.addEventListener('click', createGameBoard)
-playAgainBtn.addEventListener('click', createGameBoard)
-resetBtn.addEventListener('click', createGameBoard)
 
-function createGameBoard() {
-    // add row for guess
+
+function renderBoard() {
+    // show row for guess
+    
     // add options for guess
     // add button for submitting guess
     // add turns remaining display
@@ -68,7 +86,17 @@ function createGameBoard() {
     // create secret code
 }
 
-// Pop out window with rules breakdown when Rules link is clicked
-rulesBtn.addEventListener('click', () => {
+// // Pop out window with rules breakdown when Rules link is clicked
 
-})
+function rulePopOut() {
+
+}
+
+function unhideGuess() {
+    board[turn].forEach( (_plate, rowIdx) => {
+        document.getElementById(`g${turn}p${rowIdx}`).removeAttribute("class")
+        console.log(`g${turn}p${rowIdx}`)
+    });
+    console.log(turn)
+    
+}

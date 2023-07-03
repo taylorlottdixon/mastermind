@@ -89,42 +89,6 @@ button {
     width: 15vh;
   }
 
-  #guess1 {
-    display: none;
-  }
-
-  #guess2 {
-    display: none;
-  }
-
-  #guess3 {
-    display: none;
-  }
-
-  #guess4 {
-    display: none;
-  }
-
-  #guess5 {
-    display: none;
-  }
-
-  #guess6 {
-    display: none;
-  }
-
-  #guess7 {
-    display: none;
-  }
-
-  #guess8 {
-    display: none;
-  }
-
-  #guess9 {
-    display: none;
-  }
-
-  #guess10 {
+  .hidden {
     display: none;
   }
