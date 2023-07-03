@@ -9,6 +9,9 @@ const cupcakes = [
     {ccId: "cupcake7", image: "cupcakes/7.png"},
     {ccId: "cupcake8", image: "cupcakes/8.png"},
 ]
+const letsGo = document.getElementById('letsGo')
+
+const landingPlates = [codePlate1, codePlate2, codePlate3, codePlate4, codePlate5]
 
 /*----- state variables -----*/
 let board
@@ -21,20 +24,32 @@ let secretCode
 
 
 /*----- functions -----*/
+initLanding()
 
 function initLanding() {
-    createLandingPage()
+    createLandingPage
 }
 
 function createLandingPage() {
-    let cupcakeLanding = () => {
-
-    }
+    landingPlates.forEach( (cupcake) => {     
+        // let plate = document.getElementById(`${cupcake[Idx]}`);
+        let randomCupcake = cupcakes[Math.floor(Math.random() * cupcakes.length)].image
+        let imgCupcake = document.createElement("img")
+        imgCupcake.setAttribute('src', `${randomCupcake}`)
+        imgCupcake.setAttribute('class', 'cupcake')
+        document.getElementById(`${cupcake}`).appendChild(imgCupcake)
+        console.log(cupcake)
+    });
 }
-
 
 // To randomize cupcakes on the landing page, I'll need:
 //     to setTimeout to change each cupcake at intervals (random intervals?  >>>>  Math.floor(Math.random() * 11) seconds
 //     iterate through the different divs
 //     iterate through the cupcakes array of objects to insert images
 //        Math.floor(Math.random() * 10) <<<< Random number between 0-9 <<<< will need to ignore 8s and 9s
+
+letsGo.addEventListener('click', createGameBoard)
+
+function createGameBoard() {
+    
+}
