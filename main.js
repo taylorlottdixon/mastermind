@@ -17,11 +17,12 @@ let secretCode
 let turn
 let winner
 
+
 /*----- cached elements  -----*/
 // const letsGoBtn = document.getElementById('letsGo')
 // const playAgainBtn = document.getElementById('playAgain')
 // const resetBtn = document.getElementById('reset')
-// const rulesBtn = document.getElementById('rules')
+// const rulesBtn = document.getElementsByClassName('rulesBtn')
 
 /*----- event listeners -----*/
 // letsGoBtn.addEventListener('click', createGameBoard)
@@ -53,35 +54,30 @@ function createGameBoard() {
     ]
     turn = 1
     winner = null
-
+    // show first guess line
     unhideGuess()
+    // add options for guess
+    // add button for submitting guess
+    // add turns remaining display
+    // add reset btn
+    // add rules btn
+    // create secret code
     chooseSecretCode()
-    /////// ADD LATER -- want cupcakes to randomly change on landing page plates
-    // landingPlates.forEach( (plate) => {     
-    //     let randomCupcake = cupcakes[Math.floor(Math.random() * cupcakes.length)].image
-    //     let imgCupcake = document.createElement("img")
-    //     imgCupcake.setAttribute('src', `${randomCupcake}`)
-    //     imgCupcake.setAttribute('class', 'cupcake')
-    //     document.getElementById(`${plate}`).appendChild(`${imgCupcake}`)
-    //     console.log(plate)
-    // });
 }
 
 function chooseSecretCode() {
     let randomCupcake = cupcakes[Math.floor(Math.random() * cupcakes.length)]
     let ranCupImg = randomCupcake.image
-    console.log(randomCupcake)
-    console.log(ranCupImg)
-    console.log(randomCupcake.ccId)
-    board[turn].forEach((_plate, colIdx) => {
+    board[0].forEach((_plate, colIdx) => {
         let randomCupcake = cupcakes[Math.floor(Math.random() * (cupcakes.length-1)+1)]
-        board[turn][colIdx] = randomCupcake.ccId
-        document.getElementById(`g${turn}p${colIdx}`).innerHTML = `<img src="${randomCupcake.image}">`
+        board[0][colIdx] = randomCupcake.ccId
+        document.getElementById(`secretPlate${colIdx+1}`).innerHTML = `<img src="${randomCupcake.image}" class="hidden">`
     })
 }
 
 function renderBoard() {
-    // show row for guess
+    
+    // show row for next guess
     
     // add options for guess
     // add button for submitting guess
@@ -91,10 +87,27 @@ function renderBoard() {
     // create secret code
 }
 
-// // Pop out window with rules breakdown when Rules link is clicked
+function playerGuesses() {
+    // score last guess
+    board[turn].forEach( (guess, rowIdx) => {
+        if (board[turn][rowIdx] === board[0][rowIdx]) {
+            document.getElementById(`g${turn}p${rowIdx}`).classList.add("green")
+        } else if (board[0].includes(board[turn][rowIdx])) {
+            document.getElementById(`g${turn}p${rowIdx}`).classList.add("yellow")
+        } else {
+            document.getElementById(`g${turn}p${rowIdx}`).classList.add("red")
+        }
+    });
+}
 
 function unhideGuess() {
     board[turn].forEach( (_plate, rowIdx) => {
         document.getElementById(`g${turn}p${rowIdx}`).removeAttribute("class")
     });
 }
+// // Pop out window with rules breakdown when Rules link is clicked
+
+// function rulePopOut() {
+//     const dialog = document.querySelector("dialog")
+//     dialog.showModal()
+// }

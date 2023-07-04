@@ -70,14 +70,12 @@ div.plate > div {
 }
 
 button {
-    justify-content: center;
     margin: 3vh;
     padding: 1vh;
     font-size: 2.5vh;
     border: 1px solid rgba(135, 48, 189, 0.8);
     color: rgba(135, 48, 189, 0.8);
     font-weight: bold;
-    max-width: 100px;
   }
 
   button:hover {
@@ -85,11 +83,6 @@ button {
     color: rgba(89, 11, 138, 0.8);
     border: 1.5px solid rgba(89, 11, 138, 0.8);
     transition: .2s ease-in-out;
-  }
-
-  .cupcake {
-    height: 15vh;
-    width: 15vh;
   }
 
   .hidden {
@@ -119,5 +112,42 @@ button {
     width: 12vh;
     margin: 1.5vh;
     background: transparent;
+    background-size: contain;
+  }
+
+  div#secretCode > div {
+    height: 15vh;
+    width: 15vh;
+    margin: 1vh;
+    background: transparent url(cupcakes/plate-gray.png) no-repeat;
+    background-size: contain;
+  }
+
+  .rulesBtn {
+    position: absolute;
+    right: 10px
+  }
+
+  .green {
+    height: 15vh;
+    width: 15vh;
+    margin: 1vh;
+    background: transparent url(cupcakes/plate-green.png) no-repeat;
+    background-size: contain;
+  }
+
+  .yellow {
+    height: 15vh;
+    width: 15vh;
+    margin: 1vh;
+    background: transparent url(cupcakes/plate-green.png) no-repeat;
+    background-size: contain;
+  }
+
+  .red {
+    height: 15vh;
+    width: 15vh;
+    margin: 1vh;
+    background: transparent url(cupcakes/plate-green.png) no-repeat;
     background-size: contain;
   }
