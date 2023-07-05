@@ -61,7 +61,7 @@ div.plate > div {
                  2px 2px 1px rgba(82, 88, 96, 1),
                  2px -2px 1px rgba(82, 88, 96, 1),
                 -2px -2px 1px rgba(82, 88, 96, 1);
-  }
+}
 
 .centered {
     display: flex;
@@ -76,86 +76,102 @@ button {
     border: 1px solid rgba(135, 48, 189, 0.8);
     color: rgba(135, 48, 189, 0.8);
     font-weight: bold;
-  }
+}
 
-  button:hover {
+button:hover {
     font-size: 3vh;
     color: rgba(89, 11, 138, 0.8);
     border: 1.5px solid rgba(89, 11, 138, 0.8);
     transition: .2s ease-in-out;
-  }
+}
 
-  .hidden {
+.hidden {
     display: none;
     transition: .1s ease-in-out;
-  }
+}
   
-  div.hidden {
+div.hidden {
     transition: .1s ease-in-out;
-  }
+}
 
-  dialog {
+dialog {
     z-index: 10;
     margin-top: 10px;
     background: green;
     border: none;
     border-radius: 1rem;
-  }
+}
 
-  dialog::backdrop {
+dialog::backdrop {
     background-color: rgba(82, 88, 96, 1);
-  }
+}
 
-  img {
+img {
     display: flex;
     height: 12vh;
     width: 12vh;
     margin: 1.5vh;
     background: transparent;
     background-size: contain;
-  }
+}
 
-  div#secretCode > div {
+div#secretCode > div {
     height: 15vh;
     width: 15vh;
     margin: 1vh;
     background: transparent url(cupcakes/plate-gray.png) no-repeat;
     background-size: contain;
-  }
+}
 
-  .rulesBtn {
+.rulesBtn {
     position: absolute;
     right: 10px
-  }
+}
 
-  .green {
+div.plate > div.green {
     height: 15vh;
     width: 15vh;
     margin: 1vh;
     background: transparent url(cupcakes/plate-green.png) no-repeat;
     background-size: contain;
-  }
+}
 
-  .yellow {
+div.plate > div.yellow {
     height: 15vh;
     width: 15vh;
     margin: 1vh;
-    background: transparent url(cupcakes/plate-green.png) no-repeat;
+    background: transparent url(cupcakes/plate-yellow.png) no-repeat;
     background-size: contain;
-  }
+}
 
-  .red {
+div.plate > div.red {
     height: 15vh;
     width: 15vh;
     margin: 1vh;
-    background: transparent url(cupcakes/plate-green.png) no-repeat;
+    background: transparent url(cupcakes/plate-red.png) no-repeat;
     background-size: contain;
-  }
+}
 
-  #guessBtns {
+#guessBtns {
     display: flex;
     justify-content: center;
     gap: 3.5vh;
     height: 10vh;
-  }
+}
 
+#submit {
+    justify-content: center;
+    margin: 1.5vh auto;
+}
+
+#playAgain {
+    justify-content: center;
+    margin: 1.5vh auto;
+}
+
+#winner {
+    justify-content: center;
+    text-align: center;
+    margin: 2vh auto;
+    font-size: 4vh;
+}

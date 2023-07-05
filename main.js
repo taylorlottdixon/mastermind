@@ -11,6 +11,8 @@ const cupcakes = [
     {ccId: 8, image: "cupcakes/8.png"},
 ]
 
+
+
 /*----- state variables -----*/
 let board
 let secretCode
@@ -21,10 +23,11 @@ let plate2ThisTurn = document.getElementById(`guessBtn2`)
 let plate3ThisTurn = document.getElementById(`guessBtn3`)
 let plate4ThisTurn = document.getElementById(`guessBtn4`)
 let plate5ThisTurn = document.getElementById(`guessBtn5`)
+const guessBtns = [plate1ThisTurn, plate2ThisTurn, plate3ThisTurn, plate4ThisTurn, plate5ThisTurn]
 
 /*----- cached elements  -----*/
 // const letsGoBtn = document.getElementById('letsGo')
-// const playAgainBtn = document.getElementById('playAgain')
+const playAgainBtn = document.getElementById('playAgain')
 // const resetBtn = document.getElementById('reset')
 // const rulesBtn = document.getElementsByClassName('rulesBtn')
 const guessThisTurn = document.getElementById(`guessBtns`)
@@ -33,7 +36,7 @@ const submitBtn = document.getElementById(`submit`)
 
 /*----- event listeners -----*/
 // letsGoBtn.addEventListener('click', createGameBoard)
-// playAgainBtn.addEventListener('click', createGameBoard)
+playAgainBtn.addEventListener('click', playAgain)
 // resetBtn.addEventListener('click', createGameBoard)
 // rulesBtn.addEventListener('click', rulePopOut)
 guessThisTurn.addEventListener('click', nextGuess)
@@ -53,13 +56,11 @@ function createGameBoard() {
         [0, 0, 0, 0, 0], // guess 1
         [0, 0, 0, 0, 0], // guess 2
         [0, 0, 0, 0, 0], // guess 3
-        [0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0], // guess 4
+        [0, 0, 0, 0, 0], // guess 5
+        [0, 0, 0, 0, 0], // guess 6
+        [0, 0, 0, 0, 0], // guess 7
+        [0, 0, 0, 0, 0], // guess 8
     ]
     turn = 1
     winner = null
@@ -80,7 +81,7 @@ function chooseSecretCode() {
     board[0].forEach((_plate, colIdx) => {
         let randomCupcake = cupcakes[Math.floor(Math.random() * (cupcakes.length-1)+1)]
         board[0][colIdx] = randomCupcake.ccId
-        document.getElementById(`secretPlate${colIdx+1}`).innerHTML = `<img src="${randomCupcake.image}" class="hidden">`
+        
     })
 }
 
@@ -144,14 +145,41 @@ function playerGuesses() {
     board[turn].forEach( (_guess, rowIdx) => {
         if (board[turn][rowIdx] === board[0][rowIdx]) {
             document.getElementById(`g${turn}p${rowIdx}`).classList.add("green")
+            document.getElementById(`secretPlate${rowIdx+1}`).innerHTML = `<img src="${cupcakes[board[0][rowIdx]].image}">`
         } else if (board[0].includes(board[turn][rowIdx])) {
             document.getElementById(`g${turn}p${rowIdx}`).classList.add("yellow")
         } else {
             document.getElementById(`g${turn}p${rowIdx}`).classList.add("red")
         }
     });
-    turn += 1
-    renderBoard()
+    if (JSON.stringify(board[0]) === JSON.stringify(board[turn])) {
+        winnerMessage()
+    } else if (turn === 8) {
+        loserMessage()
+    } else {
+        turn += 1
+        renderBoard()
+    }
+}
+
+function winnerMessage() {
+    submitBtn.setAttribute("class", "hidden")
+    guessBtns.forEach((plate) => {
+        plate.classList.add("hidden")
+    }) 
+    document.getElementById("winner").removeAttribute("class")
+    document.getElementById("winner").innerText = "Congrats! You guessed all of the cupcakes!"
+    playAgainBtn.removeAttribute("class")
+}
+
+function loserMessage() {
+    submitBtn.setAttribute("class", "hidden")
+    guessBtns.forEach((plate) => {
+        plate.classList.add("hidden")
+    }) 
+    document.getElementById("winner").removeAttribute("class")
+    document.getElementById("winner").innerText = "Shoot... you ran out of guesses. No cupcakes for you!"
+    playAgainBtn.removeAttribute("class")
 }
 
 function unhideGuess() {
@@ -167,3 +195,6 @@ function unhideGuess() {
 //     dialog.showModal()
 // }
 
+function playAgain() {
+    location.reload()
+}
