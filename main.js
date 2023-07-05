@@ -1,34 +1,43 @@
 /*----- constants -----*/
 const cupcakes = [
-    {ccId: "0", image: null},
-    {ccId: "1", image: "cupcakes/1.png"},
-    {ccId: "2", image: "cupcakes/2.png"},
-    {ccId: "3", image: "cupcakes/3.png"},
-    {ccId: "4", image: "cupcakes/4.png"},
-    {ccId: "5", image: "cupcakes/5.png"},
-    {ccId: "6", image: "cupcakes/6.png"},
-    {ccId: "7", image: "cupcakes/7.png"},
-    {ccId: "8", image: "cupcakes/8.png"},
+    {ccId: 0, image: ""},
+    {ccId: 1, image: "cupcakes/1.png"},
+    {ccId: 2, image: "cupcakes/2.png"},
+    {ccId: 3, image: "cupcakes/3.png"},
+    {ccId: 4, image: "cupcakes/4.png"},
+    {ccId: 5, image: "cupcakes/5.png"},
+    {ccId: 6, image: "cupcakes/6.png"},
+    {ccId: 7, image: "cupcakes/7.png"},
+    {ccId: 8, image: "cupcakes/8.png"},
 ]
 
 /*----- state variables -----*/
 let board
 let secretCode
-let turn
+let turn = 1
 let winner
-
+let plate1ThisTurn = document.getElementById(`guessBtn1`)
+let plate2ThisTurn = document.getElementById(`guessBtn2`)
+let plate3ThisTurn = document.getElementById(`guessBtn3`)
+let plate4ThisTurn = document.getElementById(`guessBtn4`)
+let plate5ThisTurn = document.getElementById(`guessBtn5`)
 
 /*----- cached elements  -----*/
 // const letsGoBtn = document.getElementById('letsGo')
 // const playAgainBtn = document.getElementById('playAgain')
 // const resetBtn = document.getElementById('reset')
 // const rulesBtn = document.getElementsByClassName('rulesBtn')
+const guessThisTurn = document.getElementById(`guessBtns`)
+const submitBtn = document.getElementById(`submit`)
+
 
 /*----- event listeners -----*/
 // letsGoBtn.addEventListener('click', createGameBoard)
 // playAgainBtn.addEventListener('click', createGameBoard)
 // resetBtn.addEventListener('click', createGameBoard)
 // rulesBtn.addEventListener('click', rulePopOut)
+guessThisTurn.addEventListener('click', nextGuess)
+submitBtn.addEventListener('click', playerGuesses)
 
 /*----- functions -----*/
 init()
@@ -76,20 +85,63 @@ function chooseSecretCode() {
 }
 
 function renderBoard() {
-    
+    board.forEach((_row, rowIdx) => {
+        board[rowIdx].forEach((_plate, colIdx) => {
+            if (rowIdx === 0) {
+                return
+            } else {
+                let cupcake = board[rowIdx][colIdx]
+                if (cupcake !== 0) {
+                    document.getElementById(`g${rowIdx}p${colIdx}`).innerHTML = `<img src="${cupcakes[cupcake].image}">`
+                }                
+            }
+        })    
+    })   
     // show row for next guess
-    
+    unhideGuess()
     // add options for guess
     // add button for submitting guess
     // add turns remaining display
-    // add reset btn
-    // add rules btn
-    // create secret code
+}
+
+function nextGuess(evt) {
+    if (evt.target === plate1ThisTurn) {
+        if (board[turn][0] < 8) {
+            board[turn][0] += 1
+        } else {
+            board[turn][0] = 1
+        }        
+    } else if (evt.target === plate2ThisTurn) {
+        if (board[turn][1] < 8) {
+            board[turn][1] += 1
+        } else {
+            board[turn][1] = 1
+        } 
+    } else if (evt.target === plate3ThisTurn) {
+        if (board[turn][2] < 8) {
+            board[turn][2] += 1
+        } else {
+            board[turn][2] = 1
+        } 
+    } else if (evt.target === plate4ThisTurn) {
+        if (board[turn][3] < 8) {
+            board[turn][3] += 1
+        } else {
+            board[turn][3] = 1
+        } 
+    } else if (evt.target === plate5ThisTurn) {
+        if (board[turn][4] < 8) {
+            board[turn][4] += 1
+        } else {
+            board[turn][4] = 1
+        } 
+    } 
+    renderBoard ()
 }
 
 function playerGuesses() {
     // score last guess
-    board[turn].forEach( (guess, rowIdx) => {
+    board[turn].forEach( (_guess, rowIdx) => {
         if (board[turn][rowIdx] === board[0][rowIdx]) {
             document.getElementById(`g${turn}p${rowIdx}`).classList.add("green")
         } else if (board[0].includes(board[turn][rowIdx])) {
@@ -98,12 +150,15 @@ function playerGuesses() {
             document.getElementById(`g${turn}p${rowIdx}`).classList.add("red")
         }
     });
+    turn += 1
+    renderBoard()
 }
 
 function unhideGuess() {
     board[turn].forEach( (_plate, rowIdx) => {
         document.getElementById(`g${turn}p${rowIdx}`).removeAttribute("class")
     });
+    
 }
 // // Pop out window with rules breakdown when Rules link is clicked
 
@@ -111,3 +166,4 @@ function unhideGuess() {
 //     const dialog = document.querySelector("dialog")
 //     dialog.showModal()
 // }
+

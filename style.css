@@ -151,3 +151,11 @@ button {
     background: transparent url(cupcakes/plate-green.png) no-repeat;
     background-size: contain;
   }
+
+  #guessBtns {
+    display: flex;
+    justify-content: center;
+    gap: 3.5vh;
+    height: 10vh;
+  }
+
