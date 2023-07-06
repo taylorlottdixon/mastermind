@@ -26,19 +26,15 @@ let plate5ThisTurn = document.getElementById(`guessBtn5`)
 const guessBtns = [plate1ThisTurn, plate2ThisTurn, plate3ThisTurn, plate4ThisTurn, plate5ThisTurn]
 
 /*----- cached elements  -----*/
-// const letsGoBtn = document.getElementById('letsGo')
 const playAgainBtn = document.getElementById('playAgain')
-// const resetBtn = document.getElementById('reset')
-// const rulesBtn = document.getElementsByClassName('rulesBtn')
+const rulesButton = document.getElementById('rulesBtn')
 const guessThisTurn = document.getElementById(`guessBtns`)
 const submitBtn = document.getElementById(`submit`)
 
 
 /*----- event listeners -----*/
-// letsGoBtn.addEventListener('click', createGameBoard)
 playAgainBtn.addEventListener('click', playAgain)
-// resetBtn.addEventListener('click', createGameBoard)
-// rulesBtn.addEventListener('click', rulePopOut)
+rulesButton.addEventListener('click', rulePopOut)
 guessThisTurn.addEventListener('click', nextGuess)
 submitBtn.addEventListener('click', playerGuesses)
 
@@ -59,19 +55,11 @@ function createGameBoard() {
         [0, 0, 0, 0, 0], // guess 4
         [0, 0, 0, 0, 0], // guess 5
         [0, 0, 0, 0, 0], // guess 6
-        [0, 0, 0, 0, 0], // guess 7
-        [0, 0, 0, 0, 0], // guess 8
+
     ]
     turn = 1
     winner = null
-    // show first guess line
     unhideGuess()
-    // add options for guess
-    // add button for submitting guess
-    // add turns remaining display
-    // add reset btn
-    // add rules btn
-    // create secret code
     chooseSecretCode()
 }
 
@@ -98,11 +86,7 @@ function renderBoard() {
             }
         })    
     })   
-    // show row for next guess
     unhideGuess()
-    // add options for guess
-    // add button for submitting guess
-    // add turns remaining display
 }
 
 function nextGuess(evt) {
@@ -141,7 +125,6 @@ function nextGuess(evt) {
 }
 
 function playerGuesses() {
-    // score last guess
     board[turn].forEach( (_guess, rowIdx) => {
         if (board[turn][rowIdx] === board[0][rowIdx]) {
             document.getElementById(`g${turn}p${rowIdx}`).classList.add("green")
@@ -154,7 +137,7 @@ function playerGuesses() {
     });
     if (JSON.stringify(board[0]) === JSON.stringify(board[turn])) {
         winnerMessage()
-    } else if (turn === 8) {
+    } else if (turn === 6) {
         loserMessage()
     } else {
         turn += 1
@@ -188,12 +171,14 @@ function unhideGuess() {
     });
     
 }
-// // Pop out window with rules breakdown when Rules link is clicked
 
-// function rulePopOut() {
-//     const dialog = document.querySelector("dialog")
-//     dialog.showModal()
-// }
+function rulePopOut() {
+    if (document.querySelector("p").classList.contains("hidden")) {
+        document.querySelector("p").removeAttribute("class")
+    } else {
+        document.querySelector("p").classList.add("hidden")
+    }
+}
 
 function playAgain() {
     location.reload()

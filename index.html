@@ -13,6 +13,21 @@
 <body>
    <header>
         <h1>Cupcake Master</h1>
+        <p class="hidden">
+            In Cupcake Master, there will be a secret code of cupcakes 
+            and you must guess which cupcakes should appear in what order. 
+            You will have 8 turns to discover the combination, or no 
+            cupcakes for you! 
+            </br></br>
+            When you guess the right cupcake on the right plate, that 
+            plate will turn green. If you guessed a cupcake that is in the 
+            secret code, but is on the wrong plate, it will turn yellow. 
+            If the cupcake you chose is nowhere in the code, it will turn red.
+            </br></br>
+            Cycle through the available cupcakes by clicking the 'next' 
+            button under each plate. When you are done making your selcetions, 
+            click 'Submit Guess' to see how you did!
+        </p>
    </header> 
    <section id="board">
         <div class="plate" id="secretCode">
@@ -64,20 +79,8 @@
             <div class="hidden" id="g6p3"></div>
             <div class="hidden" id="g6p4"></div>
         </div>
-        <div class="plate" id="guess7">
-            <div class="hidden" id="g7p0"></div>
-            <div class="hidden" id="g7p1"></div>
-            <div class="hidden" id="g7p2"></div>
-            <div class="hidden" id="g7p3"></div>
-            <div class="hidden" id="g7p4"></div>
-        </div>
-        <div class="plate" id="guess8">
-            <div class="hidden" id="g8p0"></div>
-            <div class="hidden" id="g8p1"></div>
-            <div class="hidden" id="g8p2"></div>
-            <div class="hidden" id="g8p3"></div>
-            <div class="hidden" id="g8p4"></div>
    </section>
+   
    <div id="guessBtns">
        <button id="guessBtn1">Next</button>
        <button id="guessBtn2">Next</button>
@@ -85,20 +88,25 @@
        <button id="guessBtn4">Next</button>
        <button id="guessBtn5">Next</button>
    </div>
+   
    <button id="submit">Submit Guess</button>
-   <button data-open-modal class="rulesBtn">Rules</button>
-    <dialog data-modal class="rulesModal">
-        <div>
-            In Cupcake Master, there will be a secret code of cupcakes and you must guess which cupcakes should appear in what order. You will have 8 turns to discover the combination, or no cupcakes for you! 
-            </br></br>
-            When you guess the right cupcake on the right plate, you will see a green ring appear around that plate. If you guessed a cupcake that is in the secret code, but is on the wrong plate, the ring will be yellow. If the cupcake you chose is not in the code, the ring will turn red.
-            </br></br>
-            Are you ready to go?
-        </div>
-    </dialog>
+
+
+   <button id="rulesBtn">Rules</button>
+    
     <div id="winner" class="hidden">
         
     </div>
     <button id="playAgain" class="hidden">Play Again</button>
+    <div id="options">
+        <img src="cupcakes/1.png">
+        <img src="cupcakes/2.png">
+        <img src="cupcakes/3.png">
+        <img src="cupcakes/4.png">
+        <img src="cupcakes/5.png">
+        <img src="cupcakes/6.png">
+        <img src="cupcakes/7.png">
+        <img src="cupcakes/8.png">
+    </div>
 </body>
 </html>
