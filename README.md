@@ -24,7 +24,7 @@ HTML, CSS, and Javascript
 
 * Stylize radial menu for cupcake choice on plate click
 
-* Game remembers correct answers when building the next row, so player does not need to select the same answer over an over
+* Game remembers correct answers when building the next row, so player does not need to select the same answer over and over
 
 * Animation on correct guess
     * cupcake spins
