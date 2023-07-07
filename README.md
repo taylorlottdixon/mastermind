@@ -15,6 +15,8 @@ HTML, CSS, and Javascript
 [Launch the game](https://taylorlottdixon.github.io/mastermind/)
 
 ### Next Steps
+* Rules button creates a modal instead
+
 * Add 1 Player or Two Player modes
     * in 2 player, one player chooses the pattern, hits submit, and then the board is populated
 

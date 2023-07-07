@@ -24,6 +24,7 @@ h1 {
 p {
     padding: 0 35vh 3vh 35vh;
     font-size: 2vh;
+    transition: .4s ease-in-out;
 }
 
 div {

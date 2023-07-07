@@ -121,7 +121,7 @@ function nextGuess(evt) {
             board[turn][4] = 1
         } 
     } 
-    renderBoard ()
+    renderBoard()
 }
 
 function playerGuesses() {
@@ -136,8 +136,10 @@ function playerGuesses() {
         }
     });
     if (JSON.stringify(board[0]) === JSON.stringify(board[turn])) {
+        gameEnds()
         winnerMessage()
     } else if (turn === 6) {
+        gameEnds()
         loserMessage()
     } else {
         turn += 1
@@ -146,22 +148,19 @@ function playerGuesses() {
 }
 
 function winnerMessage() {
-    submitBtn.setAttribute("class", "hidden")
-    guessBtns.forEach((plate) => {
-        plate.classList.add("hidden")
-    }) 
-    document.getElementById("winner").removeAttribute("class")
     document.getElementById("winner").innerText = "Congrats! You guessed all of the cupcakes!"
-    playAgainBtn.removeAttribute("class")
 }
 
 function loserMessage() {
+    document.getElementById("winner").innerText = "Shoot... you ran out of guesses. No cupcakes for you!"
+}
+
+function gameEnds() {
     submitBtn.setAttribute("class", "hidden")
     guessBtns.forEach((plate) => {
         plate.classList.add("hidden")
-    }) 
+    })
     document.getElementById("winner").removeAttribute("class")
-    document.getElementById("winner").innerText = "Shoot... you ran out of guesses. No cupcakes for you!"
     playAgainBtn.removeAttribute("class")
 }
 
@@ -169,7 +168,6 @@ function unhideGuess() {
     board[turn].forEach( (_plate, rowIdx) => {
         document.getElementById(`g${turn}p${rowIdx}`).removeAttribute("class")
     });
-    
 }
 
 function rulePopOut() {
